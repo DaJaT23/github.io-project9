@@ -9,17 +9,18 @@ layout: default
 
 1. Idea to analyze with available data: This course should more proactively encourage tutoring because the language of coding is more methodical and mathematical compared to other fields. (you have to think outside of the box when it comes to coding)
 
-2. This idea is more valuable than the others brainstormed because: coding requires a lot more out of the box thinking, you have to be able to think more methodical and rigidly because you can only create certain options. For example, when talking in real life, you're more likely to say more than just yes or no. But in coding, that doesn't work out, you have to use booleans to translate those options which limit you to only True and False. 
+2. This idea is more valuable than the others brainstorming because: coding requires a lot more out of the box thinking, you have to be able to think more methodically and rigidly because you can only create certain options. For example, when talking in real life, you're more likely to say more than just yes or no. But in coding, that doesn't work out, you have to use booleans to translate those options which limit you to only True and False.
 
-## Heres a scatterpot visualizing the difficulty in comparison to tutoring effectiveness
+
+## Here's a scatterpot visualizing the difficulty in comparison to tutoring effectiveness
 
 <img src="/static/imgs/scatterplot.png" width="500">
 
-## Heres a histogram to visualize the same data in range form
+## 'Heres' a histogram to visualize the same data in range form
 
 <img src="/static/imgs/histogram.png" width="500">
 
-## Lastly, Heres a bargraph to visualize tutoring effectivness for those that attended
+## Lastly, Here's a bargraph to visualize tutoring effectivness for those that attended
 
 <img src="/static/imgs/bargraph.png" width="500">
 
