@@ -12,17 +12,19 @@ layout: default
 2. This idea is more valuable than the others brainstormed because: coding requires a lot more out of the box thinking, you have to be able to think more methodical and rigidly because you can only create certain options. For example, when talking in real life, you're more likely to say more than just yes or no. But in coding, that doesn't work out, you have to use booleans to translate those options which limit you to only True and False. 
 
 ## Lets import our data!
-`from data_utils import read_csv_rows, get_keys
+```python 
+from data_utils import read_csv_rows, get_keys
 data_rows: list[dict[str, str]] = read_csv_rows(DATA_FILE_NAME_IZZI)
 
 print(f"Data File Read: {DATA_FILE_NAME_IZZI}")
 print(f"{len(data_rows)} rows")
 print(f"{len(get_keys(data_rows[0]))} columns")
-print(f"Columns names: {get_keys(data_rows[0])}")`
+print(f"Columns names: {get_keys(data_rows[0])}")
+```
 
 # How many students went to tutoring?
 
-`# TODO: You complete the code blocks from here onward!
+```python 
 data_izzi = read_csv_rows(DATA_FILE_NAME_IZZI)
 data_alyssa = read_csv_rows(DATA_FILE_NAME_ALYSSA)
 
@@ -42,47 +44,57 @@ def filter_by_threshold(data: list[dict[str, str]], column: str, min_value: int)
     return result
 filtered_rows = filter_by_threshold(combined_rows, "tutoring_effective", 4)
 
-print(f"Students who believe tutoring is effective: {len(filtered_rows)}")`
+print(f"Students who believe tutoring is effective: {len(filtered_rows)}")
+```
 
 # Lets use the head function to view our data
 
-`from data_utils import head
+```python
+from data_utils import head
 
 data_cols_head: dict[str, list[str]] = head(data_cols, 3)
 
-tabulate(data_cols_head, get_keys(data_cols_head), "html")`
+tabulate(data_cols_head, get_keys(data_cols_head), "html")
+```
 
 # Now we can select specifically for tutoring effectivness and ranked difficulty
 
-`from data_utils import select
+```python
+from data_utils import select
 
 selected_data: dict[str, list[str]] = select(data_cols, ["tutoring_effective", "difficulty"])
 
-tabulate(head(selected_data, 10), get_keys(selected_data), "html")`
+tabulate(head(selected_data, 10), get_keys(selected_data), "html")
+```
 
 # Now lets make the data readable
 
-`from data_utils import columnar
+```python
+from data_utils import columnar
 
 data_cols: dict[str, list[str]] = columnar(data_rows)
 
 print(f"{len(get_keys(data_cols))} columns")
 print(f"{len(data_cols['year'])} rows")
-print(f"Columns names: {get_keys(data_cols)}")`
+print(f"Columns names: {get_keys(data_cols)}")
+```
 
 # Lets count how students rated tutoring and how they rated difficulty
 
-`from data_utils import count
+```python
+from data_utils import count
 
 tutoring_effective_counts: dict[str, int] = count(selected_data["tutoring_effective"])
 print(f"tutoring effective counts: {tutoring_effective_counts}")
 
 difficulty_counts: dict[str, int] = count(selected_data["difficulty"])
-print(f"difficulty counts: {difficulty_counts}")`
+print(f"difficulty counts: {difficulty_counts}")
+```
 
 ## Lets clean up the empty data for smooth graphing
 
-`def clean_rows_for_columns(data: list[dict[str, str]], columns: list[str]) -> list[dict[str, str]]:
+```python 
+def clean_rows_for_columns(data: list[dict[str, str]], columns: list[str]) -> list[dict[str, str]]:
     """Remove rows where any specified column is empty or 'None'."""
     
     result: list[dict[str, str]] = []
@@ -95,9 +107,11 @@ print(f"difficulty counts: {difficulty_counts}")`
         if valid:
             result.append(row)
 
-    return result`
+    return result
+```
     
-`data_izzi = read_csv_rows(DATA_FILE_NAME_IZZI)
+```python
+data_izzi = read_csv_rows(DATA_FILE_NAME_IZZI)
 data_alyssa = read_csv_rows(DATA_FILE_NAME_ALYSSA)
 
 combined_rows = data_izzi + data_alyssa
@@ -111,34 +125,20 @@ clean_cols = columnar(clean_rows)
 plot_data = convert_columns_to_int(
     clean_cols,
     ["tutoring_effective", "difficulty", "understanding"]
-)`
+)
+```
 
 ## Heres a scatterpot visualizing the difficulty in comparison to tutoring effectiveness
 
-`sns.relplot(
-    data=plot_data,
-    kind="scatter",
-    x="tutoring_effective",
-    y="difficulty"
-)`
+<img src="/static/imgs/scatterplot.png" width="500">
 
 ## Heres a histogram to visualize the same data in range form
 
-'sns.catplot(
-    data=plot_data,
-    kind="box",
-    x="tutoring_effective",
-    y="difficulty"
-)`
+<img src="/static/imgs/histogram.png" width="500">
 
 ## Lastly, Heres a bargraph to visualize tutoring effectivness for those that attended
 
-`sns.displot(
-    data=plot_data,
-    x="tutoring_effective",
-    bins=7
-)`
-
+<img src="/static/imgs/bargraph.png" width="500">
 
 # Final Results
 
