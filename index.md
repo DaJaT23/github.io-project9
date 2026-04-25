@@ -16,7 +16,7 @@ layout: default
 
 <img src="/static/imgs/scatterplot.png" width="500">
 
-## 'Heres' a histogram to visualize the same data in range form
+## Here's a histogram to visualize the same data in range form
 
 <img src="/static/imgs/histogram.png" width="500">
 
